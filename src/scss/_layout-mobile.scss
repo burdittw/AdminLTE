@@ -1,22 +1,196 @@
 @include media-breakpoint-down(lg) {
-  .wrapper {
-    .main-sidebar {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      min-height: 100vh;
-      margin-left: -#{$lte-sidebar-width};
+  body[data-layout="fixed"] {
 
-      .sidebar {
+    .content-wrapper,
+    .main-footer {
+      direction: ltr;
+    }
+
+    // In mobile layout the .collapsed class is opposite.
+    // .collapsed = open and not .collapsed = closed. This how we keep
+    // the state when resizing between layout-mobile and non mobile-layouts
+    // .layout-fixed:not(.sidebar-horizontal) {
+    .sidebar {
+      position: fixed;
+      top: auto;
+      bottom: 0;
+      float: none;
+      min-height: 100vh;
+
+      .sidebar-content {
         overflow-x: hidden;
         overflow-y: auto;
+        height: subtract(100vh, add($lte-main-header-height-inner, $lte-main-header-bottom-border-width));
+      }
+
+      @import "nav-sidebar";
+
+    }
+
+    &[data-sidebar-position="left"] {
+      .sidebar {
+        margin-left: calc($lte-sidebar-width * -1);
+
+        &~.main-header,
+        &~.content-wrapper,
+        &~.main-footer {
+          margin-left: 0;
+          @include transition($lte-sidebar-transition);
+        }
+
+        &.collapsed {
+          margin-left: 0;
+
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-left: $lte-sidebar-width;
+          }
+        }
+
+        &.mini-collapsed {
+          margin-left: calc($lte-sidebar-width * -1);
+
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-left: 0;
+          }
+        }
+
+        &.collapsed.mini-collapsed {
+          margin-left: 0;
+
+          .nav-sidebar .nav-link p,
+          .brand-link {
+            margin-right: -10px;
+          }
+
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-left: calc($lte-sidebar-mini-width);
+          }
+        }
       }
     }
-  }
 
-  .sidebar-open {
-    .main-sidebar {
-      margin-left: 0;
+    &[data-sidebar-position="right"] {
+      .sidebar {
+        margin-right: calc($lte-sidebar-width * -1);
+
+        &~.main-header,
+        &~.content-wrapper,
+        &~.main-footer {
+          margin-right: 0;
+          @include transition($lte-sidebar-transition);
+        }
+
+        &.collapsed {
+          margin-right: 0;
+
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-right: $lte-sidebar-width;
+          }
+        }
+
+        &.mini-collapsed {
+          margin-right: calc($lte-sidebar-width * -1);
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-right: 0;
+          }
+        }
+
+        &.collapsed.mini-collapsed {
+          margin-right: 0;
+          
+          .nav-sidebar .nav-link p,
+          .brand-link {
+            margin-right: -10px;
+          }
+
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-right: calc($lte-sidebar-mini-width);
+          }
+        }
+      }
+    }
+
+    // Use this area for css that can be used in both left or right side sidebars
+    .sidebar.mini-collapsed {
+      min-width: $lte-sidebar-mini-width;
+      max-width: $lte-sidebar-mini-width;
+
+      // A fix for text overflow while transitioning from sidebar mini to full sidebar (need to check)
+      .nav-sidebar,
+      .nav-sidebar>.nav-header,
+      .nav-sidebar .nav-link {
+        white-space: nowrap;
+      }
+
+      // Make the sidebar headers
+      .nav-sidebar .nav-header {
+        display: none;
+      }
+
+      .nav-sidebar {
+        .nav-link {
+          width: $lte-sidebar-mini-width - $lte-sidebar-padding-x * 2;
+        }
+      }
+
+      .nav-sidebar .nav-link p {
+        width: 0;
+        white-space: nowrap;
+      }
+
+      .sidebar-cta {
+        display: none;
+      }
+
+      .nav-sidebar .nav-link p,
+      .brand-link {
+        // margin-left: -10px;
+        visibility: hidden;
+        animation-name: fadeOut;
+        animation-duration: $lte-transition-speed;
+        animation-fill-mode: both;
+      }
+
+      &.sidebar-is-hover {
+        min-width: $lte-sidebar-width;
+        max-width: $lte-sidebar-width;
+        width: $lte-sidebar-width;
+      }
+
+      &.sidebar-is-hover {
+        .nav-sidebar .nav-header {
+          display: inline-block;
+        }
+
+        .nav-sidebar .nav-link {
+          width: subtract($lte-sidebar-width, $lte-sidebar-padding-x * 2);
+        }
+
+        .nav-sidebar .nav-link p,
+        .brand-link {
+          margin-left: 0;
+          visibility: visible;
+          animation-name: fadeIn;
+          animation-duration: $lte-transition-speed;
+          animation-fill-mode: both;
+        }
+
+        .sidebar-cta {
+          display: block;
+        }
+      }
     }
   }
 }

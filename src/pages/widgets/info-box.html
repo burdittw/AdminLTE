@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <!-- For RTL verison -->
 <!-- <html lang="en" dir="rtl"> -->
   <head>
@@ -8,8 +8,15 @@
       "title": "AdminLTE 4 | Widgets - Info Box"
     })
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    
+    <!---------------------------------------------------------------------------------------------------------
+      How to use the data-attributes to configure AdminLTE
+      data-theme:             "light" or "dark" (This currently does not work but is preped for Bootstrap 5.3)
+      data-layout:            "fixed" is only availble for now
+      data-sidebar-position:  "left" or "right"
+    ----------------------------------------------------------------------------------------------------------->
   </head>
-  <body class="layout-fixed">
+  <body data-layout="fixed" data-sidebar-position="left">
     <div class="wrapper">
       @@include('./dashboard/_topbar.html', {
         "path": "../.."

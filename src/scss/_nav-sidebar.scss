@@ -1,10 +1,12 @@
 // Sidebar navigation menu
 .nav-sidebar {
+
   // All levels
   .nav-item {
-    > .nav-link {
+    >.nav-link {
       margin-bottom: .2rem;
 
+      // Used to transform the chevron at the end of a nav-item
       .end {
         @include transition(transform $lte-transition-fn $lte-transition-speed);
         transform: none #{"/*rtl:rotate(-180deg)*/"};
@@ -13,8 +15,8 @@
   }
 
   // All levels
-  .nav-link > .end,
-  .nav-link > p > .end {
+  .nav-link>.end,
+  .nav-link>p>.end {
     position: absolute;
     top: .7rem;
     right: 1rem;
@@ -37,30 +39,33 @@
   }
 
   .nav-header {
-    padding: $nav-link-padding-y ($nav-link-padding-y * 1.5);
-    font-size: .9rem;
-  }
+    padding: $nav-link-padding-y (
+      calc($nav-link-padding-y * 1.5)
+    );
+  font-size: .9rem;
+}
 
-  // Tree view menu
-  .nav-treeview {
-    display: none;
-    padding: 0;
-    list-style: none;
-  }
+// Tree view menu
+.nav-treeview {
+  display: none;
+  padding: 0;
+  list-style: none;
+}
 
-  .menu-open {
-    > .nav-treeview {
-      display: block;
+.menu-open {
+  >.nav-treeview {
+    display: block;
+  }
+}
+
+.menu-open,
+.menu-is-opening {
+  >.nav-link {
+
+    svg.end,
+    i.end {
+      transform: rotate(90deg) #{"/*rtl:rotate(90deg)*/"};
     }
   }
-
-  .menu-open,
-  .menu-is-opening {
-    > .nav-link {
-      svg.end,
-      i.end {
-        transform: rotate(90deg) #{"/*rtl:rotate(90deg)*/"};
-      }
-    }
-  }
+}
 }

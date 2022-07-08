@@ -3,8 +3,7 @@
 //
 
 .sidebar-bg-dark {
-  @include nav-treeview-dark (
-    $lte-sidebar-dark-bg,
+  @include nav-treeview-dark ($lte-sidebar-dark-bg,
     $lte-sidebar-dark-hover-bg,
     $lte-sidebar-dark-color,
     $lte-sidebar-dark-hover-color,
@@ -15,13 +14,11 @@
     $lte-sidebar-dark-submenu-hover-bg,
     $lte-sidebar-dark-submenu-active-color,
     $lte-sidebar-dark-submenu-active-bg,
-    $lte-sidebar-dark-header-color
-  );
+    $lte-sidebar-dark-header-color );
 }
 
 .sidebar-bg-light {
-  @include nav-treeview-light (
-    $lte-sidebar-light-bg,
+  @include nav-treeview-light ($lte-sidebar-light-bg,
     $lte-sidebar-light-hover-bg,
     $lte-sidebar-light-color,
     $lte-sidebar-light-hover-color,
@@ -32,32 +29,34 @@
     $lte-sidebar-light-submenu-hover-bg,
     $lte-sidebar-light-submenu-active-color,
     $lte-sidebar-light-submenu-active-bg,
-    $lte-sidebar-light-header-color
-  );
+    $lte-sidebar-light-header-color );
 }
 
 // .sidebar-color-primary {
 //   @include sidebar-color($primary);
 // }
 
-.main-sidebar {
-  @include transition($lte-sidebar-transition);
+.sidebar {
+  direction: ltr;
   z-index: $lte-zindex-sidebar;
   grid-area: main-sidebar;
   min-width: $lte-sidebar-width;
   max-width: $lte-sidebar-width;
+  
+  // Used to transition the sidebar in and out, to include on hover in mini view,
+  @include transition($lte-sidebar-transition);
 
-  .nav-sidebar > .nav-item {
-    > .nav-link.active {
+  .nav-sidebar>.nav-item {
+    >.nav-link.active {
       color: var(--lte-sidebar-menu-active-color);
       background-color: var(--lte-sidebar-menu-active-bg);
     }
   }
 }
 
-.hold-transition {
-  .main-sidebar {
-    @include transition(none !important);
-    animation: none !important;
-  }
-}
+// .hold-transition {
+//   .sidebar {
+//     @include transition(none !important);
+//     animation: none !important;
+//   }
+// }

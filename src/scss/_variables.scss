@@ -1,47 +1,98 @@
 // Custom AdminLTE Variables
 
-// COLORS
-// --------------------------------------------------------
+// Fonts
+$font-family-sans-serif:      "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-weight-normal:          400 !default;
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-sm:                $font-size-base * .875 !default;
+$font-size-lg:                $font-size-base * 1.25 !default;
+$font-size-xs:                $font-size-base * .75 !default;
+$font-size-xl:                $font-size-base * 2 !default;
+
+$line-height-base:            1.5 !default;
+$line-height-sm:              1.25 !default;
+$line-height-lg:              2 !default;
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+$h7-font-size:                $font-size-sm !default;
+$h8-font-size:                $font-size-xs !default;
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  7: $h7-font-size, // adminlte-modified
+  8: $h8-font-size // adminlte-modified
+) !default;
+
+// Zindex
+$zindex-fixed:  1030 !default;
+
+// Spacer
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
+
+// Borders
+$border-width:  1px !default;
+
+// Links
+$link-decoration: none !default;
+
+// Shadows
+$enable-shadows:  true !default;
+
+// Theme colors
+$blue:    #3B7DDD !default;
+$indigo:  #0a0a0a !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #fcb92c !default;
+$green:   #1cbb8c !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$white:    #fff !default;
 $lte-gray-x-light: #d2d6de !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         #f5f7fb !default;
+$dark:          $gray-900 !default;
 
 // Dynamic Variables
 // --------------------------------------------------------
-:root {
-  // Sidebar
-  --lte-sidebar-width: 250px;
 
-  // Sidebar active links
-  --lte-sidebar-menu-active-bg: #{$primary};
-  --lte-sidebar-menu-active-color: #{$white};
-
-  // Dark Sidebar Native Variables
-  --lte-sidebar-dark-bg: #343a40;
-  --lte-sidebar-dark-hover-bg: rgba(255, 255, 255, .1);
-  --lte-sidebar-dark-color: #c2c7d0;
-  --lte-sidebar-dark-hover-color: #{$white};
-  --lte-sidebar-dark-active-color: #{$white};
-  --lte-sidebar-dark-submenu-bg: transparent;
-  --lte-sidebar-dark-submenu-color: var(--lte-sidebar-dark-color);
-  --lte-sidebar-dark-submenu-hover-color: #{$white};
-  --lte-sidebar-dark-submenu-hover-bg: var(--lte-sidebar-dark-hover-bg);
-  --lte-sidebar-dark-submenu-active-color: var(--lte-sidebar-dark-bg);
-  --lte-sidebar-dark-submenu-active-bg: rgba(255, 255, 255, .9);
-  --lte-sidebar-dark-header-color: #{tint-color(#c2c7d0, 5%)};
-
-  // Light Sidebar Native Variables
-  --lte-sidebar-light-bg: #{$white};
-  --lte-sidebar-light-hover-bg: rgba(#{$black}, .1);
-  --lte-sidebar-light-color: #{$gray-800};
-  --lte-sidebar-light-hover-color: #{$gray-900};
-  --lte-sidebar-light-active-color: #{$black};
-  --lte-sidebar-light-submenu-bg: transparent;
-  --lte-sidebar-light-submenu-color: #777;
-  --lte-sidebar-light-submenu-hover-color: #{$black};
-  --lte-sidebar-light-submenu-hover-bg: var(--lte-sidebar-light-hover-bg);
-  --lte-sidebar-light-submenu-active-color: var(--lte-sidebar-light-hover-color);
-  --lte-sidebar-light-submenu-active-bg: var(--lte-sidebar-light-submenu-hover-bg);
-  --lte-sidebar-light-header-color: #{shade-color($gray-800, 5%)};
-}
 
 // LAYOUT
 // --------------------------------------------------------
@@ -52,8 +103,22 @@ $lte-font-size-root:              1rem !default;
 // --------------------------------------------------------
 
 // Transition global options
-$lte-transition-speed:            .3s !default;
+$lte-transition-speed:            .4s !default;
 $lte-transition-fn:               ease-in-out !default;
+
+// Navbars
+$navbar-padding-y:                  $spacer * .5 !default;
+$navbar-padding-x:                  null !default;
+$nav-link-padding-y:                .5rem !default;
+$nav-link-padding-x:                1rem !default;
+$nav-link-height:                   $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
+$navbar-nav-link-padding-x:         1rem !default;
+
+// Navbar brand
+$navbar-brand-font-size:            $font-size-lg !default;
+$navbar-brand-height:               $navbar-brand-font-size * $line-height-base !default;
+$navbar-brand-padding-y:            ($nav-link-height - $navbar-brand-height) * .5 !default;
+
 
 // Sidebar
 // --------------------------------------------------------
@@ -65,10 +130,11 @@ $lte-sidebar-custom-height-lg:    6rem !default;
 $lte-sidebar-custom-height-xl:    8rem !default;
 $lte-sidebar-custom-padding-x:    .85rem !default;
 $lte-sidebar-custom-padding-y:    .5rem !default;
-$lte-sidebar-transition:          min-width $lte-transition-speed $lte-transition-fn,
-  max-width $lte-transition-speed $lte-transition-fn,
-  margin-left $lte-transition-speed $lte-transition-fn,
-  margin-right $lte-transition-speed $lte-transition-fn !default;
+$lte-sidebar-transition:          min-width $lte-transition-speed 
+$lte-transition-fn, max-width $lte-transition-speed
+$lte-transition-fn, margin-left $lte-transition-speed
+$lte-transition-fn, margin-right $lte-transition-speed
+$lte-transition-fn !default;
 
 // margin-top $lte-transition-speed $lte-transition-fn,
 // transform $lte-transition-speed $lte-transition-fn;

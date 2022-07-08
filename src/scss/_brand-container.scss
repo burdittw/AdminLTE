@@ -4,9 +4,20 @@
 
 // @include brand-variant($lte-sidebar-dark-bg, $lte-sidebar-dark-color);
 
+body[data-sidebar-position="left"]
 .brand-container {
   display: grid;
   grid-template-areas: "brand-link pushmenu";
+}
+
+body[data-sidebar-position="right"]
+.brand-container {
+  display: grid;
+  grid-template-areas: "pushmenu brand-link";
+  // grid-template-columns: 40px 1fr;
+}
+
+.brand-container {
   justify-content: space-between;
   padding: $lte-brand-link-padding-y $lte-sidebar-padding-x;
   overflow: hidden;
@@ -16,6 +27,7 @@
 
   .brand-link {
     grid-area: brand-link;
+    width: 200px;
 
     &:hover {
       text-decoration: none;
@@ -63,7 +75,7 @@
   }
 }
 
-.sidebar-collapse:not(.sidebar-is-hover) {
+.mini-collapsed:not(.sidebar-is-hover) {
   .brand-container {
     justify-content: center;
 

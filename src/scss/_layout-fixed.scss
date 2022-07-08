@@ -1,43 +1,182 @@
 @include media-breakpoint-up(lg) {
-  .layout-fixed:not(.sidebar-horizontal) {
-    .main-sidebar {
+  body[data-layout="fixed"] {
+
+    .content-wrapper,
+    .main-footer {
+      direction: ltr;
+    }
+
+    // .layout-fixed:not(.sidebar-horizontal) {
+    .sidebar {
       position: fixed;
       top: auto;
       bottom: 0;
-      left: 0;
+      //left: 0;
       float: none;
 
-      .sidebar {
+      .sidebar-content {
         height: subtract(100vh, add($lte-main-header-height-inner, $lte-main-header-bottom-border-width));
       }
+
+      @import "nav-sidebar";      
+
     }
 
-    .main-header,
-    .content-wrapper,
-    .main-footer {
-      margin-left: $lte-sidebar-width;
-      @include transition($lte-transition-speed $lte-transition-fn);
-    }
+    // Use this data attribute for css specific to sidebar on the left side and in a fixed layout
+    &[data-sidebar-position="left"] {
 
-    &.sidebar-collapse {
       .main-header,
       .content-wrapper,
       .main-footer {
-        margin-left: $lte-sidebar-mini-width;
+        margin-left: $lte-sidebar-width;
+        @include transition($lte-sidebar-transition);
+      }
+
+      .sidebar.collapsed {
+        margin-left: calc($lte-sidebar-width * -1);
+
+        &~.main-header,
+        &~.content-wrapper,
+        &~.main-footer {
+          margin-left: 0;
+        }
+      }
+
+      .sidebar.mini-collapsed {
+        
+        .nav-sidebar .nav-link p,
+        .brand-link {
+          margin-right: -10px;
+        }
+
+        &~.main-header,
+        &~.content-wrapper,
+        &~.main-footer {
+          margin-left: calc($lte-sidebar-mini-width);
+        }
+
+        &.collapsed {
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-left: 0;
+          }
+        }
       }
     }
 
-    &.sidebar-close {
+    // Use this data attribute for css specific to the sidebar on the right side and in fixed layout
+    &[data-sidebar-position="right"] {
+
       .main-header,
       .content-wrapper,
       .main-footer {
-        margin-left: 0;
+        margin-right: $lte-sidebar-width;
+        @include transition($lte-sidebar-transition);
+      }
+
+      .sidebar.collapsed {
+        margin-right: calc($lte-sidebar-width * -1);
+
+        &~.main-header,
+        &~.content-wrapper,
+        &~.main-footer {
+          margin-right: 0;
+        }
+      }
+
+      .sidebar.mini-collapsed {
+
+        .nav-sidebar .nav-link p,
+        .brand-link {
+          margin-right: -10px;
+        }
+
+        &~.main-header,
+        &~.content-wrapper,
+        &~.main-footer {
+          margin-right: calc($lte-sidebar-mini-width);
+        }
+
+        &.collapsed {
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    // Use this area for css that can be used in both left or right side sidebars
+    .sidebar.mini-collapsed {
+      min-width: $lte-sidebar-mini-width;
+      max-width: $lte-sidebar-mini-width;
+
+      // A fix for text overflow while transitioning from sidebar mini to full sidebar (need to check)
+      .nav-sidebar,
+      .nav-sidebar>.nav-header,
+      .nav-sidebar .nav-link {
+        white-space: nowrap;
+      }
+
+      // Make the sidebar headers
+      .nav-sidebar .nav-header {
+        display: none;
+      }
+
+      .nav-sidebar {
+        .nav-link {
+          width: $lte-sidebar-mini-width - $lte-sidebar-padding-x * 2;
+        }
+      }
+
+      .nav-sidebar .nav-link p {
+        width: 0;
+        white-space: nowrap;
+      }
+
+      .sidebar-cta {
+        display: none;
+      }
+
+      .nav-sidebar .nav-link p,
+      .brand-link {
+        // margin-left: -10px;
+        visibility: hidden;
+        animation-name: fadeOut;
+        animation-duration: $lte-transition-speed;
+        animation-fill-mode: both;
+      }
+
+      &.sidebar-is-hover {
+        min-width: $lte-sidebar-width;
+        max-width: $lte-sidebar-width;
+        width: $lte-sidebar-width;
+      }
+
+      &.sidebar-is-hover {
+        .nav-sidebar .nav-header {
+          display: inline-block;
+        }
+
+        .nav-sidebar .nav-link {
+          width: subtract($lte-sidebar-width, $lte-sidebar-padding-x * 2);
+        }
+
+        .nav-sidebar .nav-link p,
+        .brand-link {
+          margin-left: 0;
+          visibility: visible;
+          animation-name: fadeIn;
+          animation-duration: $lte-transition-speed;
+          animation-fill-mode: both;
+        }
+
+        .sidebar-cta {
+          display: block;
+        }
       }
     }
   }
-
-  // .layout-fixed.fs-7 .wrapper .sidebar {
-  //   // stylelint-disable-next-line
-  //   height: calc(100vh - (#{$lte-main-header-height-sm-inner} + #{$lte-main-header-bottom-border-width}));
-  // }
 }

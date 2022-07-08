@@ -9,6 +9,7 @@
 .sass-cache
 
 # Project files
+# /dist
 .idea
 nbproject
 nbproject/private

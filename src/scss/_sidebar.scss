@@ -1,5 +1,4 @@
-.sidebar {
-  // min-height: 100%;
+.sidebar-content {
   padding-top: $lte-sidebar-padding-y;
   padding-right: $lte-sidebar-padding-x;
   padding-bottom: $lte-sidebar-padding-y;
@@ -8,4 +7,12 @@
   overflow-y: auto;
   @include scrollbar-color-gray();
   @include scrollbar-width-thin();
+}
+
+.sidebar-cta-content {
+  background: $lte-sidebar-dark-hover-bg;
+  border-radius: .3rem;
+  color: $lte-sidebar-dark-color;
+  margin: $lte-sidebar-padding-y;
+  padding: $lte-sidebar-padding-y;
 }
