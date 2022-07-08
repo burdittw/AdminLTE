@@ -17,15 +17,15 @@
   </head>
   <body data-layout="fixed" data-sidebar-position="left">
     <div class="wrapper">
-      @@include('./dashboard/_topbar.html', {
-        "path": "../.."
-      })
-
       @@include('./dashboard/_sidenav.html', {
         "mainPage": "forms",
         "page": "general",
         "path": "../.."
       })
+
+      @@include('./dashboard/_topbar.html', {
+        "path": "../.."
+      })      
       <!-- Main content -->
       <main class="content-wrapper">
         <div class="content-header">
