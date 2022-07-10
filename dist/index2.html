@@ -52,17 +52,17 @@
       <!-- Main Sidebar Container -->
 <!-- <aside class="main-sidebar sidebar-bg-dark sidebar-color-primary shadow"> -->
 <!-- Sidebar -->
-<nav class="sidebar sidebar-bg-dark">
+<nav class="sidebar sidebar-bg-dark sidebar-color-primary shadow" data-theme="dark">
   
     <div class="brand-container">
       <a href="javascript:;" class="brand-link">
-        <img src="./assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-80 shadow">
+        <img src="./assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow">
         <span class="brand-text fw-light">AdminLTE 4</span>
       </a>
       <a class="pushmenu mx-1" data-lte-toggle="sidebar-mini" href="javascript:;" role="button"><i
           class="fas fa-angle-double-left"></i></a>
     </div>
-    <div class="sidebar-content">
+    <div class="sidebar-content mt-2">
     <!-- Sidebar Menu -->
     <ul class="nav nav-pills nav-sidebar flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
       <li class="nav-item menu-open">
@@ -129,7 +129,7 @@
           <i class="nav-icon fas fa-circle"></i>
           <p>
             Layout Options
-            <span class="badge bg-info float-end me-3">6</span>
+            <span class="badge text-bg-info float-end me-3">6</span>
             <i class="end fas fa-angle-right"></i>
           </p>
         </a>
@@ -279,7 +279,7 @@
 <!-- </aside> -->
 
       <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-light">
+<nav class="main-header navbar navbar-expand bg-body-tertiary border-bottom">
   <div class="container-fluid">
     <!-- Start navbar links -->
     <ul class="navbar-nav navbar-header-rightside">
@@ -307,7 +307,7 @@
       <li class="nav-item dropdown menu-item-chat">
         <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
-          <span class="navbar-badge badge bg-danger">3</span>
+          <span class="navbar-badge badge text-bg-danger">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <a href="#" class="dropdown-item">
@@ -371,7 +371,7 @@
       <li class="nav-item dropdown menu-item-notifications">
         <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="navbar-badge badge bg-warning">15</span>
+          <span class="navbar-badge badge text-bg-warning">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <span class="dropdown-item dropdown-header">15 Notifications</span>
@@ -401,7 +401,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <!-- User image -->
-          <li class="user-header bg-primary">
+          <li class="user-header text-bg-primary">
             <img src="./assets/img/user2-160x160.jpg" class="img-circle shadow" alt="User Image">
 
             <p>
@@ -442,6 +442,14 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li> -->
+      <li class="nav-item dropdown">
+        <div class="form-check form-switch py-2 px-2 px-lg-2 d-flex align-items-center">
+          <input type="checkbox" class="form-check-input ms-1" role="switch" id="toggleNightMode" aria-checked="false">
+          <label class="form-check-label" for="toggleNightMode">
+            <i class="fas fa-moon align-middle ps-1"></i>
+          </label>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
@@ -470,7 +478,7 @@
             <div class="row">
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
-                  <span class="info-box-icon bg-primary shadow-sm"><i class="fas fa-cog"></i></span>
+                  <span class="info-box-icon text-bg-primary shadow-sm"><i class="fas fa-cog"></i></span>
 
                   <div class="info-box-content">
                     <span class="info-box-text">CPU Traffic</span>
@@ -486,7 +494,7 @@
               <!-- /.col -->
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
-                  <span class="info-box-icon bg-danger shadow-sm"><i class="fas fa-thumbs-up"></i></span>
+                  <span class="info-box-icon text-bg-danger shadow-sm"><i class="fas fa-thumbs-up"></i></span>
 
                   <div class="info-box-content">
                     <span class="info-box-text">Likes</span>
@@ -503,7 +511,7 @@
 
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
-                  <span class="info-box-icon bg-success shadow-sm"><i class="fas fa-shopping-cart"></i></span>
+                  <span class="info-box-icon text-bg-success shadow-sm"><i class="fas fa-shopping-cart"></i></span>
 
                   <div class="info-box-content">
                     <span class="info-box-text">Sales</span>
@@ -516,7 +524,7 @@
               <!-- /.col -->
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
-                  <span class="info-box-icon bg-warning shadow-sm"><i class="fas fa-users"></i></span>
+                  <span class="info-box-icon text-bg-warning shadow-sm"><i class="fas fa-users"></i></span>
 
                   <div class="info-box-content">
                     <span class="info-box-text">New Members</span>
@@ -581,7 +589,7 @@
                           Add Products to Cart
                           <span class="float-end"><b>160</b>/200</span>
                           <div class="progress progress-sm">
-                            <div class="progress-bar bg-primary" style="width: 80%"></div>
+                            <div class="progress-bar text-bg-primary" style="width: 80%"></div>
                           </div>
                         </div>
                         <!-- /.progress-group -->
@@ -590,7 +598,7 @@
                           Complete Purchase
                           <span class="float-end"><b>310</b>/400</span>
                           <div class="progress progress-sm">
-                            <div class="progress-bar bg-danger" style="width: 75%"></div>
+                            <div class="progress-bar text-bg-danger" style="width: 75%"></div>
                           </div>
                         </div>
 
@@ -599,7 +607,7 @@
                           <span class="progress-text">Visit Premium Page</span>
                           <span class="float-end"><b>480</b>/800</span>
                           <div class="progress progress-sm">
-                            <div class="progress-bar bg-success" style="width: 60%"></div>
+                            <div class="progress-bar text-bg-success" style="width: 60%"></div>
                           </div>
                         </div>
 
@@ -608,7 +616,7 @@
                           Send Inquiries
                           <span class="float-end"><b>250</b>/500</span>
                           <div class="progress progress-sm">
-                            <div class="progress-bar bg-warning" style="width: 50%"></div>
+                            <div class="progress-bar text-bg-warning" style="width: 50%"></div>
                           </div>
                         </div>
                         <!-- /.progress-group -->
@@ -678,7 +686,7 @@
                         <h3 class="card-title">Direct Chat</h3>
 
                         <div class="card-tools">
-                          <span title="3 New Messages" class="badge bg-warning">3</span>
+                          <span title="3 New Messages" class="badge text-bg-warning">3</span>
                           <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
                             <i class="fas fa-minus"></i>
                           </button>
@@ -883,7 +891,7 @@
                         <h3 class="card-title">Latest Members</h3>
 
                         <div class="card-tools">
-                          <span class="badge bg-danger">8 New Members</span>
+                          <span class="badge text-bg-danger">8 New Members</span>
                           <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
                             <i class="fas fa-minus"></i>
                           </button>
@@ -980,7 +988,7 @@
                         <tr>
                           <td><a href="pages/examples/invoice.html">OR9842</a></td>
                           <td>Call of Duty IV</td>
-                          <td><span class="badge bg-success">Shipped</span></td>
+                          <td><span class="badge text-bg-success">Shipped</span></td>
                           <td>
                             <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
                           </td>
@@ -988,7 +996,7 @@
                         <tr>
                           <td><a href="pages/examples/invoice.html">OR1848</a></td>
                           <td>Samsung Smart TV</td>
-                          <td><span class="badge bg-warning">Pending</span></td>
+                          <td><span class="badge text-bg-warning">Pending</span></td>
                           <td>
                             <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
                           </td>
@@ -996,7 +1004,7 @@
                         <tr>
                           <td><a href="pages/examples/invoice.html">OR7429</a></td>
                           <td>iPhone 6 Plus</td>
-                          <td><span class="badge bg-danger">Delivered</span></td>
+                          <td><span class="badge text-bg-danger">Delivered</span></td>
                           <td>
                             <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
                           </td>
@@ -1012,7 +1020,7 @@
                         <tr>
                           <td><a href="pages/examples/invoice.html">OR1848</a></td>
                           <td>Samsung Smart TV</td>
-                          <td><span class="badge bg-warning">Pending</span></td>
+                          <td><span class="badge text-bg-warning">Pending</span></td>
                           <td>
                             <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
                           </td>
@@ -1020,7 +1028,7 @@
                         <tr>
                           <td><a href="pages/examples/invoice.html">OR7429</a></td>
                           <td>iPhone 6 Plus</td>
-                          <td><span class="badge bg-danger">Delivered</span></td>
+                          <td><span class="badge text-bg-danger">Delivered</span></td>
                           <td>
                             <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
                           </td>
@@ -1028,7 +1036,7 @@
                         <tr>
                           <td><a href="pages/examples/invoice.html">OR9842</a></td>
                           <td>Call of Duty IV</td>
-                          <td><span class="badge bg-success">Shipped</span></td>
+                          <td><span class="badge text-bg-success">Shipped</span></td>
                           <td>
                             <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
                           </td>
@@ -1051,7 +1059,7 @@
 
               <div class="col-md-4">
                 <!-- Info Boxes Style 2 -->
-                <div class="info-box mb-3 bg-warning">
+                <div class="info-box mb-3 text-bg-warning">
                   <span class="info-box-icon"><i class="fas fa-tag"></i></span>
 
                   <div class="info-box-content">
@@ -1061,7 +1069,7 @@
                   <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-                <div class="info-box mb-3 bg-success">
+                <div class="info-box mb-3 text-bg-success">
                   <span class="info-box-icon"><i class="far fa-heart"></i></span>
 
                   <div class="info-box-content">
@@ -1071,7 +1079,7 @@
                   <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-                <div class="info-box mb-3 bg-danger">
+                <div class="info-box mb-3 text-bg-danger">
                   <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
 
                   <div class="info-box-content">
@@ -1185,7 +1193,7 @@
                         </div>
                         <div class="product-info">
                           <a href="javascript:void(0)" class="product-title">Samsung TV
-                            <span class="badge bg-warning float-end">$1800</span></a>
+                            <span class="badge text-bg-warning float-end">$1800</span></a>
                           <span class="product-description">
                             Samsung 32" 1080p 60Hz LED Smart HDTV.
                           </span>
@@ -1211,7 +1219,7 @@
                         </div>
                         <div class="product-info">
                           <a href="javascript:void(0)" class="product-title">
-                            Xbox One <span class="badge bg-danger float-end">
+                            Xbox One <span class="badge text-bg-danger float-end">
                             $350
                           </span>
                           </a>
@@ -1227,7 +1235,7 @@
                         </div>
                         <div class="product-info">
                           <a href="javascript:void(0)" class="product-title">PlayStation 4
-                            <span class="badge bg-success float-end">$399</span></a>
+                            <span class="badge text-bg-success float-end">$399</span></a>
                           <span class="product-description">
                             PlayStation 4 500GB Console (PS4)
                           </span>
@@ -1253,7 +1261,7 @@
       <!-- /.content-wrapper -->
 
       <!-- Main Footer -->
-<footer class="main-footer">
+<footer class="main-footer border-top">
   <!-- To the end -->
   <div class="float-end d-none d-sm-inline">
     Anything you want

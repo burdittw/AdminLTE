@@ -12,7 +12,7 @@
     // .layout-fixed:not(.sidebar-horizontal) {
     .sidebar {
       position: fixed;
-      top: auto;
+      top: 0;
       bottom: 0;
       float: none;
       min-height: 100vh;

@@ -2,17 +2,17 @@
 // Core: Main Header
 //
 
-@include header-variant(
-  $lte-header-light-bg,
-  $lte-header-light-color,
-  $lte-header-mobile-light-bg,
-  $lte-header-mobile-light-color
-);
+// @include header-variant(
+//   $lte-header-light-bg,
+//   $lte-header-light-color,
+//   $lte-header-mobile-light-bg,
+//   $lte-header-mobile-light-color
+// );
 
 .main-header {
   z-index: $lte-zindex-main-header;
   grid-area: main-header;
-  border-bottom: $lte-main-header-bottom-border;
+  // border-bottom: $lte-main-header-bottom-border;
 
   .nav-link {
     position: relative;
@@ -45,12 +45,14 @@ body[data-sidebar-position="right"] {
   font-size: .6rem;
 }
 
-.layout-navbar-fixed {
-  .main-header {
-    // position: fixed;
-  }
+// They were empty and showing up as a problem, so they have been commented out
+// until we know it they are needed or not
+// .layout-navbar-fixed {
+//   .main-header {
+//     // position: fixed;
+//   }
 
-  .content-wrapper {
-    // margin-top: $lte-main-header-height;
-  }
-}
+//   .content-wrapper {
+//     // margin-top: $lte-main-header-height;
+//   }
+// }

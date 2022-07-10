@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-light">
+<nav class="main-header navbar navbar-expand bg-body-tertiary border-bottom">
   <div class="container-fluid">
     <!-- Start navbar links -->
     <ul class="navbar-nav navbar-header-rightside">
@@ -27,7 +27,7 @@
       <li class="nav-item dropdown menu-item-chat">
         <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
-          <span class="navbar-badge badge bg-danger">3</span>
+          <span class="navbar-badge badge text-bg-danger">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <a href="#" class="dropdown-item">
@@ -91,7 +91,7 @@
       <li class="nav-item dropdown menu-item-notifications">
         <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="navbar-badge badge bg-warning">15</span>
+          <span class="navbar-badge badge text-bg-warning">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <span class="dropdown-item dropdown-header">15 Notifications</span>
@@ -121,7 +121,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
           <!-- User image -->
-          <li class="user-header bg-primary">
+          <li class="user-header text-bg-primary">
             <img src="@@path/assets/img/user2-160x160.jpg" class="img-circle shadow" alt="User Image">
 
             <p>
@@ -162,6 +162,14 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li> -->
+      <li class="nav-item dropdown">
+        <div class="form-check form-switch py-2 px-2 px-lg-2 d-flex align-items-center">
+          <input type="checkbox" class="form-check-input ms-1" role="switch" id="toggleNightMode" aria-checked="false">
+          <label class="form-check-label" for="toggleNightMode">
+            <i class="fas fa-moon align-middle ps-1"></i>
+          </label>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>

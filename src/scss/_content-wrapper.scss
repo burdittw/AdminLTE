@@ -1,6 +1,6 @@
 .content-wrapper {
   grid-area: content-wrapper;
   padding-bottom: 1rem;
-  color: $lte-main-color;
-  background-color: $lte-main-bg;
+  color: var(--bs-body-color); // $lte-main-color;
+  background-color: var(--bs-body-bg) // $lte-main-bg;
 }

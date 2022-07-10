@@ -1,27 +1,92 @@
 // Custom AdminLTE Variables
 
-// Fonts
-$font-family-sans-serif:      "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-weight-normal:          400 !default;
-$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
-$font-size-sm:                $font-size-base * .875 !default;
-$font-size-lg:                $font-size-base * 1.25 !default;
-$font-size-xs:                $font-size-base * .75 !default;
-$font-size-xl:                $font-size-base * 2 !default;
+// gray-color-variables
+$lte-gray-x-light: #d2d6de;
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
 
-$line-height-base:            1.5 !default;
-$line-height-sm:              1.25 !default;
-$line-height-lg:              2 !default;
+// color-variables
+$blue:    #0d6efd;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #d63384;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #198754;
+$teal:    #20c997;
+$cyan:    #0dcaf0;
 
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
-$h7-font-size:                $font-size-sm !default;
-$h8-font-size:                $font-size-xs !default;
+$spacer: 1rem;
 
+// Links
+$link-decoration: none;
+
+// Shadows
+$enable-shadows:  true;
+
+// theme-color-variables
+$light:         #f5f7fb;
+$primary:       $blue;
+$secondary:     $gray-600;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
+
+// theme-colors-map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+$border-width:                1px;
+
+// scss-docs-start font-variables
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+// $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
+// $font-size-base affects the font size of the body text
+$lte-font-size-root:          1rem;
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-sm:                $font-size-base * .875;
+$font-size-xs:                $font-size-base * .75;
+$font-size-lg:                $font-size-base * 1.25;
+$font-size-xl:                $font-size-base * 2;
+
+$font-weight-normal:          400;
+
+$line-height-base:            1.5;
+$line-height-sm:              1.25;
+
+$h1-font-size:                $font-size-base * 2.5;
+$h2-font-size:                $font-size-base * 2;
+$h3-font-size:                $font-size-base * 1.75;
+$h4-font-size:                $font-size-base * 1.5;
+$h5-font-size:                $font-size-base * 1.25;
+$h6-font-size:                $font-size-base;
+$h7-font-size:                $font-size-sm;
+$h8-font-size:                $font-size-xs;
+
+// font-sizes
 $font-sizes: (
   1: $h1-font-size,
   2: $h2-font-size,
@@ -31,110 +96,46 @@ $font-sizes: (
   6: $h6-font-size,
   7: $h7-font-size, // adminlte-modified
   8: $h8-font-size // adminlte-modified
-) !default;
+);
 
-// Zindex
-$zindex-fixed:  1030 !default;
-
-// Spacer
-$spacer: 1rem !default;
-$spacers: (
-  0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
-) !default;
-
-// Borders
-$border-width:  1px !default;
-
-// Links
-$link-decoration: none !default;
-
-// Shadows
-$enable-shadows:  true !default;
-
-// Theme colors
-$blue:    #3B7DDD !default;
-$indigo:  #0a0a0a !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #fcb92c !default;
-$green:   #1cbb8c !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
-
-$white:    #fff !default;
-$lte-gray-x-light: #d2d6de !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black: #000 !default;
-
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         #f5f7fb !default;
-$dark:          $gray-900 !default;
-
-// Dynamic Variables
-// --------------------------------------------------------
-
-
-// LAYOUT
-// --------------------------------------------------------
-
-$lte-font-size-root:              1rem !default;
+$zindex-fixed:                      1030;
 
 // TRANSITIONS SETTINGS
 // --------------------------------------------------------
 
 // Transition global options
-$lte-transition-speed:            .4s !default;
-$lte-transition-fn:               ease-in-out !default;
+$lte-transition-speed:            .4s;
+$lte-transition-fn:               ease-in-out;
 
 // Navbars
-$navbar-padding-y:                  $spacer * .5 !default;
-$navbar-padding-x:                  null !default;
-$nav-link-padding-y:                .5rem !default;
-$nav-link-padding-x:                1rem !default;
-$nav-link-height:                   $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
-$navbar-nav-link-padding-x:         1rem !default;
+$navbar-padding-y:                  $spacer * .5;
+$navbar-padding-x:                  null;
+$nav-link-padding-y:                .5rem;
+$nav-link-padding-x:                1rem;
+$nav-link-height:                   $font-size-base * $line-height-base + $nav-link-padding-y * 2;
+$navbar-nav-link-padding-x:         1rem;
 
 // Navbar brand
-$navbar-brand-font-size:            $font-size-lg !default;
-$navbar-brand-height:               $navbar-brand-font-size * $line-height-base !default;
-$navbar-brand-padding-y:            ($nav-link-height - $navbar-brand-height) * .5 !default;
+$navbar-brand-font-size:            $font-size-lg;
+$navbar-brand-height:               $navbar-brand-font-size * $line-height-base;
+$navbar-brand-padding-y:            ($nav-link-height - $navbar-brand-height) * .5;
 
 
 // Sidebar
 // --------------------------------------------------------
-$lte-sidebar-width:               var(--lte-sidebar-width) !default;
-$lte-sidebar-padding-x:           .5rem !default;
-$lte-sidebar-padding-y:           .5rem !default;
-$lte-sidebar-custom-height:       4rem !default;
-$lte-sidebar-custom-height-lg:    6rem !default;
-$lte-sidebar-custom-height-xl:    8rem !default;
-$lte-sidebar-custom-padding-x:    .85rem !default;
-$lte-sidebar-custom-padding-y:    .5rem !default;
+$lte-sidebar-width:               var(--lte-sidebar-width);
+$lte-sidebar-padding-x:           .5rem;
+$lte-sidebar-padding-y:           .5rem;
+$lte-sidebar-custom-height:       4rem;
+$lte-sidebar-custom-height-lg:    6rem;
+$lte-sidebar-custom-height-xl:    8rem;
+$lte-sidebar-custom-padding-x:    .85rem;
+$lte-sidebar-custom-padding-y:    .5rem;
 $lte-sidebar-transition:          min-width $lte-transition-speed 
 $lte-transition-fn, max-width $lte-transition-speed
 $lte-transition-fn, margin-left $lte-transition-speed
 $lte-transition-fn, margin-right $lte-transition-speed
-$lte-transition-fn !default;
+$lte-transition-fn;
 
 // margin-top $lte-transition-speed $lte-transition-fn,
 // transform $lte-transition-speed $lte-transition-fn;
@@ -143,170 +144,170 @@ $lte-transition-fn !default;
 // --------------------------------------------------------
 
 // Dark sidebar
-$lte-sidebar-dark-bg:                   var(--lte-sidebar-dark-bg) !default;
-$lte-sidebar-dark-hover-bg:             var(--lte-sidebar-dark-hover-bg) !default;
-$lte-sidebar-dark-color:                var(--lte-sidebar-dark-color) !default;
-$lte-sidebar-dark-hover-color:          var(--lte-sidebar-dark-hover-color) !default;
-$lte-sidebar-dark-active-color:         var(--lte-sidebar-dark-active-color) !default;
-$lte-sidebar-dark-submenu-bg:           var(--lte-sidebar-dark-submenu-bg) !default;
-$lte-sidebar-dark-submenu-color:        var(--lte-sidebar-dark-submenu-color) !default;
-$lte-sidebar-dark-submenu-hover-color:  var(--lte-sidebar-dark-submenu-hover-color) !default;
-$lte-sidebar-dark-submenu-hover-bg:     var(--lte-sidebar-dark-submenu-hover-bg) !default;
-$lte-sidebar-dark-submenu-active-color: var(--lte-sidebar-dark-submenu-active-color) !default;
-$lte-sidebar-dark-submenu-active-bg:    var(--lte-sidebar-dark-submenu-active-bg) !default;
-$lte-sidebar-dark-header-color:         var(--lte-sidebar-dark-header-color) !default;
+$lte-sidebar-dark-bg:                   var(--lte-sidebar-dark-bg);
+$lte-sidebar-dark-hover-bg:             var(--lte-sidebar-dark-hover-bg);
+$lte-sidebar-dark-color:                var(--lte-sidebar-dark-color);
+$lte-sidebar-dark-hover-color:          var(--lte-sidebar-dark-hover-color);
+$lte-sidebar-dark-active-color:         var(--lte-sidebar-dark-active-color);
+$lte-sidebar-dark-submenu-bg:           var(--lte-sidebar-dark-submenu-bg);
+$lte-sidebar-dark-submenu-color:        var(--lte-sidebar-dark-submenu-color);
+$lte-sidebar-dark-submenu-hover-color:  var(--lte-sidebar-dark-submenu-hover-color);
+$lte-sidebar-dark-submenu-hover-bg:     var(--lte-sidebar-dark-submenu-hover-bg);
+$lte-sidebar-dark-submenu-active-color: var(--lte-sidebar-dark-submenu-active-color);
+$lte-sidebar-dark-submenu-active-bg:    var(--lte-sidebar-dark-submenu-active-bg);
+$lte-sidebar-dark-header-color:         var(--lte-sidebar-dark-header-color);
 
 // Light sidebar
-$lte-sidebar-light-bg:                   var(--lte-sidebar-light-bg) !default;
-$lte-sidebar-light-hover-bg:             var(--lte-sidebar-light-hover-bg) !default;
-$lte-sidebar-light-color:                var(--lte-sidebar-light-color) !default;
-$lte-sidebar-light-hover-color:          var(--lte-sidebar-light-hover-color) !default;
-$lte-sidebar-light-active-color:         var(--lte-sidebar-light-active-color) !default;
-$lte-sidebar-light-submenu-bg:           var(--lte-sidebar-light-submenu-bg) !default;
-$lte-sidebar-light-submenu-color:        var(--lte-sidebar-light-submenu-color) !default;
-$lte-sidebar-light-submenu-hover-color:  var(--lte-sidebar-light-submenu-hover-color) !default;
-$lte-sidebar-light-submenu-hover-bg:     var(--lte-sidebar-light-submenu-hover-bg) !default;
-$lte-sidebar-light-submenu-active-color: var(--lte-sidebar-light-submenu-active-color) !default;
-$lte-sidebar-light-submenu-active-bg:    var(--lte-sidebar-light-submenu-active-bg) !default;
-$lte-sidebar-light-header-color:         var(--lte-sidebar-light-header-color) !default;
+$lte-sidebar-light-bg:                   var(--lte-sidebar-light-bg);
+$lte-sidebar-light-hover-bg:             var(--lte-sidebar-light-hover-bg);
+$lte-sidebar-light-color:                var(--lte-sidebar-light-color);
+$lte-sidebar-light-hover-color:          var(--lte-sidebar-light-hover-color);
+$lte-sidebar-light-active-color:         var(--lte-sidebar-light-active-color);
+$lte-sidebar-light-submenu-bg:           var(--lte-sidebar-light-submenu-bg);
+$lte-sidebar-light-submenu-color:        var(--lte-sidebar-light-submenu-color);
+$lte-sidebar-light-submenu-hover-color:  var(--lte-sidebar-light-submenu-hover-color);
+$lte-sidebar-light-submenu-hover-bg:     var(--lte-sidebar-light-submenu-hover-bg);
+$lte-sidebar-light-submenu-active-color: var(--lte-sidebar-light-submenu-active-color);
+$lte-sidebar-light-submenu-active-bg:    var(--lte-sidebar-light-submenu-active-bg);
+$lte-sidebar-light-header-color:         var(--lte-sidebar-light-header-color);
 
 // SIDEBAR MINI
 // --------------------------------------------------------
-$lte-sidebar-mini-width:          ($nav-link-padding-x + $lte-sidebar-padding-x + .8rem) * 2 !default;
-$lte-sidebar-nav-icon-width:      $lte-sidebar-mini-width - (($lte-sidebar-padding-x + $nav-link-padding-x) * 2) !default;
-$lte-sidebar-user-image-width:    $lte-sidebar-nav-icon-width + ($nav-link-padding-x * .5) !default;
+$lte-sidebar-mini-width:          ($nav-link-padding-x + $lte-sidebar-padding-x + .8rem) * 2;
+$lte-sidebar-nav-icon-width:      $lte-sidebar-mini-width - (($lte-sidebar-padding-x + $nav-link-padding-x) * 2);
+$lte-sidebar-user-image-width:    $lte-sidebar-nav-icon-width + ($nav-link-padding-x * .5);
 
 // SIDEBAR HORIZONTAL
 // --------------------------------------------------------
-$lte-sidebar-horizontal-width:    100% !default;
-$lte-sidebar-horizontal-height:   80px !default;
+$lte-sidebar-horizontal-width:    100%;
+$lte-sidebar-horizontal-height:   80px;
 
 // CONTROL SIDEBAR
 // --------------------------------------------------------
-$lte-control-sidebar-width:       $lte-sidebar-width !default;
+$lte-control-sidebar-width:       $lte-sidebar-width;
 
 // MAIN HEADER
 // --------------------------------------------------------
-$lte-main-header-bottom-border-width:  $border-width !default;
-$lte-main-header-bottom-border-color:  $gray-300 !default;
-$lte-main-header-bottom-border:        $lte-main-header-bottom-border-width solid $lte-main-header-bottom-border-color !default;
-$lte-main-header-link-padding-y:       $navbar-padding-y !default;
-$lte-main-header-height-inner:         ($nav-link-height + ($lte-main-header-link-padding-y * 2)) !default;
-$lte-main-header-height:               add($lte-main-header-height-inner, $lte-main-header-bottom-border-width) !default;
-$lte-nav-link-sm-padding-y:            .35rem !default;
-$lte-nav-link-sm-height:               ($font-size-sm * $line-height-sm + $lte-nav-link-sm-padding-y * 1.785) !default;
-$lte-main-header-height-sm-inner:      ($lte-nav-link-sm-height + ($lte-main-header-link-padding-y * 2)) !default;
-$lte-main-header-height-sm:            add($lte-main-header-height-sm-inner, $lte-main-header-bottom-border-width) !default;
+$lte-main-header-bottom-border-width:  $border-width;
+$lte-main-header-bottom-border-color:  $gray-300;
+$lte-main-header-bottom-border:        $lte-main-header-bottom-border-width solid $lte-main-header-bottom-border-color;
+$lte-main-header-link-padding-y:       $navbar-padding-y;
+$lte-main-header-height-inner:         ($nav-link-height + ($lte-main-header-link-padding-y * 2));
+$lte-main-header-height:               add($lte-main-header-height-inner, $lte-main-header-bottom-border-width);
+$lte-nav-link-sm-padding-y:            .35rem;
+$lte-nav-link-sm-height:               ($font-size-sm * $line-height-sm + $lte-nav-link-sm-padding-y * 1.785);
+$lte-main-header-height-sm-inner:      ($lte-nav-link-sm-height + ($lte-main-header-link-padding-y * 2));
+$lte-main-header-height-sm:            add($lte-main-header-height-sm-inner, $lte-main-header-bottom-border-width);
 
 // HEADER SKINS
 // --------------------------------------------------------
 
 // Dark sidebar
-$lte-header-dark-bg:              $dark !default;
-$lte-header-dark-color:           $white !default;
-$lte-header-mobile-dark-bg:       $dark !default;
-$lte-header-mobile-dark-color:    $white !default;
+$lte-header-dark-bg:              $dark;
+$lte-header-dark-color:           $white;
+$lte-header-mobile-dark-bg:       $dark;
+$lte-header-mobile-dark-color:    $white;
 
 // Light sidebar
-$lte-header-light-bg:             $white !default;
-$lte-header-light-color:          $dark !default;
-$lte-header-mobile-light-bg:      $light !default;
-$lte-header-mobile-light-color:   $dark !default;
+$lte-header-light-bg:             $white;
+$lte-header-light-color:          $dark;
+$lte-header-mobile-light-bg:      $light;
+$lte-header-mobile-light-color:   $dark;
 
 // Content padding
-$lte-content-padding-y:           0 !default;
-$lte-content-padding-x:           .5rem !default;
+$lte-content-padding-y:           0;
+$lte-content-padding-x:           .5rem;
 
 // IMAGE SIZES
 // --------------------------------------------------------
-$lte-img-size-sm: 1.875rem !default;
-$lte-img-size-md: 3.75rem !default;
-$lte-img-size-lg: 6.25rem !default;
-$lte-img-size-push: .625rem !default;
+$lte-img-size-sm: 1.875rem;
+$lte-img-size-md: 3.75rem;
+$lte-img-size-lg: 6.25rem;
+$lte-img-size-push: .625rem;
 
 // MAIN FOOTER
 // --------------------------------------------------------
-$lte-main-footer-padding:           1rem !default;
-$lte-main-footer-padding-sm:        $lte-main-footer-padding * .812 !default;
-$lte-main-footer-border-top-width:  1px !default;
-$lte-main-footer-border-top-color:  $gray-300 !default;
-$lte-main-footer-border-top:        $lte-main-footer-border-top-width solid $lte-main-footer-border-top-color !default;
-$lte-main-footer-height-inner:      (($lte-font-size-root * $line-height-base) + ($lte-main-footer-padding * 2)) !default;
-$lte-main-footer-height:            add($lte-main-footer-height-inner, $lte-main-footer-border-top-width) !default;
-$lte-main-footer-height-sm-inner:   (($font-size-sm * $line-height-base) + ($lte-main-footer-padding-sm * 2)) !default;
-$lte-main-footer-height-sm:         add($lte-main-footer-height-sm-inner, $lte-main-footer-border-top-width) !default;
-$lte-main-footer-bg:                $white !default;
-$lte-main-footer-color:             tint-color($gray-700, 25%) !default;
+$lte-main-footer-padding:           1rem;
+$lte-main-footer-padding-sm:        $lte-main-footer-padding * .812;
+$lte-main-footer-border-top-width:  1px;
+$lte-main-footer-border-top-color:  $gray-300;
+$lte-main-footer-border-top:        $lte-main-footer-border-top-width solid $lte-main-footer-border-top-color;
+$lte-main-footer-height-inner:      (($lte-font-size-root * $line-height-base) + ($lte-main-footer-padding * 2));
+$lte-main-footer-height:            add($lte-main-footer-height-inner, $lte-main-footer-border-top-width);
+$lte-main-footer-height-sm-inner:   (($font-size-sm * $line-height-base) + ($lte-main-footer-padding-sm * 2));
+$lte-main-footer-height-sm:         add($lte-main-footer-height-sm-inner, $lte-main-footer-border-top-width);
+$lte-main-footer-bg:                $white;
+$lte-main-footer-color:             tint-color($gray-700, 25%);
 
 // BRAND LINK
 // --------------------------------------------------------
-$lte-brand-link-padding-y:        $navbar-brand-padding-y + $navbar-padding-y !default;
-$lte-brand-link-border-buttom:    1px !default;
+$lte-brand-link-padding-y:        $navbar-brand-padding-y + $navbar-padding-y;
+$lte-brand-link-border-buttom:    1px;
 
 
 // Cards
 // --------------------------------------------------------
-$lte-card-dark-border-color: tint-color($gray-900, 10%) !default;
-$lte-card-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2) !default;
-$lte-card-title-font-size: 1.1rem !default;
-$lte-card-title-font-size-sm: 1rem !default;
-$lte-card-title-font-weight: $font-weight-normal !default;
-$lte-card-nav-link-padding-sm-y: .4rem !default;
-$lte-card-nav-link-padding-sm-x: .8rem !default;
-$lte-card-img-size: $lte-img-size-sm !default;
+$lte-card-dark-border-color: tint-color($gray-900, 10%);
+$lte-card-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+$lte-card-title-font-size: 1.1rem;
+$lte-card-title-font-size-sm: 1rem;
+$lte-card-title-font-weight: $font-weight-normal;
+$lte-card-nav-link-padding-sm-y: .4rem;
+$lte-card-nav-link-padding-sm-x: .8rem;
+$lte-card-img-size: $lte-img-size-sm;
 
 // PROGRESS BARS
 // --------------------------------------------------------
-$lte-progress-bar-border-radius: 1px !default;
+$lte-progress-bar-border-radius: 1px;
 
 // DIRECT CHAT
 // --------------------------------------------------------
-$lte-direct-chat-default-msg-bg: $lte-gray-x-light !default;
-$lte-direct-chat-default-font-color: #444 !default;
-$lte-direct-chat-default-msg-border-color: $lte-gray-x-light !default;
+$lte-direct-chat-default-msg-bg: $lte-gray-x-light;
+$lte-direct-chat-default-font-color: #444;
+$lte-direct-chat-default-msg-border-color: $lte-gray-x-light;
 
 // Z-INDEX
 // --------------------------------------------------------
-$lte-zindex-main-header:          $zindex-fixed + 4 !default;
-$lte-zindex-sidebar:              $zindex-fixed + 8 !default;
-$lte-zindex-main-footer:          $zindex-fixed + 2 !default;
-$lte-zindex-sidebar-horizontal:   $lte-zindex-main-header - 2 !default;
-$lte-zindex-control-sidebar:      $zindex-fixed + 1 !default;
-$lte-zindex-toasts:               $lte-zindex-sidebar + 2 !default;
-$lte-zindex-content-wrapper:      $lte-zindex-sidebar - 2 !default;
-$lte-zindex-preloader:            $lte-zindex-toasts + 2 !default;
+$lte-zindex-main-header:          $zindex-fixed + 4;
+$lte-zindex-sidebar:              $zindex-fixed + 8;
+$lte-zindex-main-footer:          $zindex-fixed + 2;
+$lte-zindex-sidebar-horizontal:   $lte-zindex-main-header - 2;
+$lte-zindex-control-sidebar:      $zindex-fixed + 1;
+$lte-zindex-toasts:               $lte-zindex-sidebar + 2;
+$lte-zindex-content-wrapper:      $lte-zindex-sidebar - 2;
+$lte-zindex-preloader:            $lte-zindex-toasts + 2;
 
 // Body background (Affects main content background only)
-$lte-main-bg:                   #f4f6f9 !default;
-$lte-main-color:                  $black !default;
+$lte-main-bg:                   #f4f6f9;
+$lte-main-color:                  $black;
 
 // BUTTON
 // --------------------------------------------------------
-$lte-button-default-background-color: $gray-100 !default;
-$lte-button-default-color: #444 !default;
-$lte-button-default-border-color: #ddd !default;
+$lte-button-default-background-color: $gray-100;
+$lte-button-default-color: #444;
+$lte-button-default-border-color: #ddd;
 
-$lte-button-padding-y-xs: .125rem !default;
-$lte-button-padding-x-xs: .25rem !default;
-$lte-button-line-height-xs: $line-height-sm !default;
-$lte-button-font-size-xs: ($font-size-base * .75) !default;
-$lte-button-border-radius-xs: .15rem !default;
+$lte-button-padding-y-xs: .125rem;
+$lte-button-padding-x-xs: .25rem;
+$lte-button-line-height-xs: $line-height-sm;
+$lte-button-font-size-xs: ($font-size-base * .75);
+$lte-button-border-radius-xs: .15rem;
 
 // RIBBON
 // --------------------------------------------------------
-$lte-ribbon-border-size: 3px !default;
-$lte-ribbon-line-height: 100% !default;
-$lte-ribbon-padding: .375rem 0 !default;
-$lte-ribbon-font-size: .8rem !default;
-$lte-ribbon-width: 90px !default;
-$lte-ribbon-wrapper-size: 70px !default;
-$lte-ribbon-top: 10px !default;
-$lte-ribbon-right: -2px !default;
-$lte-ribbon-lg-wrapper-size: 120px !default;
-$lte-ribbon-lg-width: 160px !default;
-$lte-ribbon-lg-top: 26px !default;
-$lte-ribbon-lg-right: 0 !default;
-$lte-ribbon-xl-wrapper-size: 180px !default;
-$lte-ribbon-xl-width: 240px !default;
-$lte-ribbon-xl-top: 47px !default;
-$lte-ribbon-xl-right: 4px !default;
+$lte-ribbon-border-size: 3px;
+$lte-ribbon-line-height: 100%;
+$lte-ribbon-padding: .375rem 0;
+$lte-ribbon-font-size: .8rem;
+$lte-ribbon-width: 90px;
+$lte-ribbon-wrapper-size: 70px;
+$lte-ribbon-top: 10px;
+$lte-ribbon-right: -2px;
+$lte-ribbon-lg-wrapper-size: 120px;
+$lte-ribbon-lg-width: 160px;
+$lte-ribbon-lg-top: 26px;
+$lte-ribbon-lg-right: 0;
+$lte-ribbon-xl-wrapper-size: 180px;
+$lte-ribbon-xl-width: 240px;
+$lte-ribbon-xl-top: 47px;
+$lte-ribbon-xl-right: 4px;
