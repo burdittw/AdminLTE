@@ -4,7 +4,11 @@
 <!-- <html lang="en" dir="rtl"> -->
   <head>
     <!-- icheck bootstrap -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+    // Render blocking JS:
+    if (localStorage.theme) document.documentElement.setAttribute("data-theme", localStorage.theme);
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Primary Meta Tags -->
 <title>AdminLTE 4 | General Form Elements</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

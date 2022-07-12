@@ -50,10 +50,10 @@ class ThemeToggle {
           }
           if(theme === SELECTOR_DARK_TOGGLE) {
             switchTheme.checked = true
-            switchTheme.ariaChecked = 'true'
+            //switchTheme.ariaChecked = 'true'
           } else {
             switchTheme.checked = false
-            switchTheme.ariaChecked = 'false'
+            //switchTheme.ariaChecked = 'false'
           }
         }
       

@@ -1,0 +1,7 @@
+[data-theme="dark"] {
+  .main-footer {
+    background-color: $lte-main-footer-bg-dark;
+    color: $body-color-dark;
+    border-top-color: tint-color($dark-dark, 10%);
+  }
+}

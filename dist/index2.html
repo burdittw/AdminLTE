@@ -3,7 +3,11 @@
 <!-- For RTL verison -->
 <!-- <html lang="en" dir="rtl"> -->
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+    // Render blocking JS:
+    if (localStorage.theme) document.documentElement.setAttribute("data-theme", localStorage.theme);
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- Primary Meta Tags -->
 <title>AdminLTE 4 | Dashboard 2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -279,7 +283,7 @@
 <!-- </aside> -->
 
       <!-- Navbar -->
-<nav class="main-header navbar navbar-expand bg-body-tertiary border-bottom">
+<nav class="main-header navbar navbar-expand">
   <div class="container-fluid">
     <!-- Start navbar links -->
     <ul class="navbar-nav navbar-header-rightside">
@@ -444,7 +448,7 @@
       </li> -->
       <li class="nav-item dropdown">
         <div class="form-check form-switch py-2 px-2 px-lg-2 d-flex align-items-center">
-          <input type="checkbox" class="form-check-input ms-1" role="switch" id="toggleNightMode" aria-checked="false">
+          <input type="checkbox" class="form-check-input ms-1" role="switch" id="toggleNightMode" checked aria-checked="true">
           <label class="form-check-label" for="toggleNightMode">
             <i class="fas fa-moon align-middle ps-1"></i>
           </label>
@@ -1261,7 +1265,7 @@
       <!-- /.content-wrapper -->
 
       <!-- Main Footer -->
-<footer class="main-footer border-top">
+<footer class="main-footer">
   <!-- To the end -->
   <div class="float-end d-none d-sm-inline">
     Anything you want

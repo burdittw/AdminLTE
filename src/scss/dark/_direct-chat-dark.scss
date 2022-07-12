@@ -1,0 +1,77 @@
+[data-theme="dark"] {
+  .direct-chat-text {
+    color: $white-dark;
+    background-color: $gray-800-dark;
+    border-color: tint-color($gray-800-dark, 10%);
+
+    &::after,
+    &::before {
+      border-right-color: $gray-800-dark;
+    }
+  }
+
+  .direct-chat-timestamp {
+    color: $gray-300-dark;
+  }
+
+  .end>.direct-chat-text {
+
+    &::after,
+    &::before {
+      border-right-color: transparent;
+    }
+  }
+
+  .direct-chat-contacts {
+    color: $white-dark;
+    background-color: $gray-800-dark;
+  }
+
+  .direct-chat-contacts-light {
+    background-color: $dark-dark;
+
+    .contacts-list-name {
+      color: $light-dark;
+    }
+
+    .contacts-list-date {
+      color: $gray-200-dark;
+    }
+
+    .contacts-list-msg {
+      color: $gray-300-dark;
+    }
+  }
+
+  //Contacts list -- for displaying contacts in direct chat contacts pane
+  .contacts-list>li {
+    border-bottom-color: rgba($white-dark, .2);
+  }
+
+  .contacts-list-info {
+    color: $white-dark;
+  }
+
+  .contacts-list-date {
+    color: $gray-300-dark;
+  }
+
+  .contacts-list-msg {
+    color: $gray-400-dark;
+  }
+
+  // Color variants
+  @each $name,
+  $color in $theme-colors-dark {
+    .direct-chat-#{$name} {
+      @include direct-chat-variant($color);
+    }
+  }
+
+  @each $name,
+  $color in $colors-dark {
+    .direct-chat-#{$name} {
+      @include direct-chat-variant($color);
+    }
+  }
+}

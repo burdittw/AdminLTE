@@ -1,0 +1,17 @@
+[data-theme="dark"] {
+  .main-header {
+    background-color: $dark-dark;
+    color: $white-dark;
+    border-bottom-color: tint-color($dark-dark, 10%);
+    //border-bottom: var(--bs-border-width) var(--bs-border-style) tint-color($dark-dark, 10%) !important;
+
+    .nav-link {
+      color: $body-color-dark;
+
+      &:hover,
+      &:focus {
+        color: $white-dark;
+      }
+    }
+  }
+}

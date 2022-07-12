@@ -1,0 +1,19 @@
+[data-theme="dark"] {
+  .info-box {
+    color: $white-dark;
+    background-color: $dark-dark;
+
+    @each $name,
+    $color in $theme-colors-dark {
+      .info-box {
+        .bg-#{$name} {
+          color: color-contrast($color);
+
+          .progress-bar {
+            background-color: color-contrast($color);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+[data-theme="dark"] {
+  .products-list>.item {
+    color: $body-color-dark;
+    background-color: $body-bg-dark;
+    border-bottom-color: $gray-600-dark;
+  }
+
+  .product-description {
+    color: $gray-200-dark;
+  }
+}

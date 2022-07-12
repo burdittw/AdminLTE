@@ -2,17 +2,17 @@
 // Core: Main Header
 //
 
-// @include header-variant(
-//   $lte-header-light-bg,
-//   $lte-header-light-color,
-//   $lte-header-mobile-light-bg,
-//   $lte-header-mobile-light-color
-// );
+@include header-variant(
+  $lte-header-light-bg,
+  $lte-header-light-color,
+  $lte-header-mobile-light-bg,
+  $lte-header-mobile-light-color
+);
 
 .main-header {
   z-index: $lte-zindex-main-header;
   grid-area: main-header;
-  // border-bottom: $lte-main-header-bottom-border;
+  border-bottom: $lte-main-header-bottom-border;
 
   .nav-link {
     position: relative;

@@ -1,0 +1,109 @@
+/*
+*  TODO: Not sure how this works with the new bootstrap theme's
+*  this is not working
+*/
+
+//$body-bg-dark: #0045bc;
+
+
+$white-dark: #fafafa;
+$gray-100-dark: #e1e1e1; //~~
+$gray-200-dark: #cfcfcf; //~~
+$gray-300-dark: #b1b1b1; //~~
+$gray-400-dark: #9e9e9e; //~~
+$gray-500-dark: #7e7e7e; //~~
+$gray-600-dark: #626262; //~~
+$gray-700-dark: #515151; //~~
+$gray-800-dark: #3b3b3b; //~~
+$gray-900-dark: #222; //~~
+$black-dark: #111; //~~
+
+// fusv-disable
+$grays-dark: (
+    "100": $gray-100-dark,
+    "200": $gray-200-dark,
+    "300": $gray-300-dark,
+    "400": $gray-400-dark,
+    "500": $gray-500-dark,
+    "600": $gray-600-dark,
+    "700": $gray-700-dark,
+    "800": $gray-800-dark,
+    "900": $gray-900-dark
+);
+// fusv-enable
+
+$blue-dark: #375a7f;
+$indigo-dark: #673ab7; //~~
+$purple-dark: #654ea3; // Panatone CotY 2018
+$pink-dark: #e83e8c;
+$red-dark: #e74c3c; //**
+$orange-dark: #fd7e14;
+$yellow-dark: #f39c12; //**
+$green-dark: #00bc8c; //**
+$teal-dark: #45b5aa; // Panatone CotY 2010
+$cyan-dark: #17a2b8;
+
+$colors-dark: (
+    "blue": $blue-dark,
+    "indigo": $indigo-dark,
+    "purple": $purple-dark,
+    "pink": $pink-dark,
+    "red": $red-dark,
+    "orange": $orange-dark,
+    "yellow": $yellow-dark,
+    "green": $green-dark,
+    "teal": $teal-dark,
+    "cyan": $cyan-dark,
+    "white": $white-dark,
+    "black": $black-dark,
+    "gray": #7e7e7e,
+    // $gray-600,
+    "gray-dark": #121212 //$gray-800
+);
+
+$primary-dark: $blue-dark ;
+$secondary-dark: $gray-600-dark;
+$success-dark: $green-dark;
+$info-dark: $cyan-dark;
+$warning-dark: $yellow-dark;
+$danger-dark: $red-dark;
+$light-dark: $gray-400-dark;
+$dark-dark: $gray-800-dark;
+
+$theme-colors-dark: (
+    "primary": $primary-dark,
+    "secondary": $secondary-dark,
+    "success": $success-dark,
+    "info": $info-dark,
+    "warning": $warning-dark,
+    "danger": $danger-dark,
+    "light": $light-dark,
+    "dark": $dark-dark
+);
+
+$theme-colors-rgb-dark: map-loop($theme-colors-dark, to-rgb, "$value");
+
+:root, 
+    [data-theme="dark"] {
+        // Sidebar active links
+        --lte-sidebar-menu-active-bg: #{$primary-dark};
+        --lte-sidebar-menu-active-color: #{$white-dark};
+
+        // Dark Sidebar Native Variables
+        --lte-sidebar-dark-bg: #{$dark-dark};
+
+        // Light Sidebar Native Variables
+        --lte-sidebar-light-bg: #{$white-dark};
+    }
+
+
+// MAIN FOOTER
+// --------------------------------------------------------
+$lte-main-footer-bg-dark: $dark-dark;
+
+// Body background (Affects main content background only)
+$lte-main-bg-dark: $gray-900-dark;
+$lte-main-color-dark: $white-dark;
+
+
+
