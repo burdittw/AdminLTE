@@ -160,12 +160,23 @@
      * Constants
      * ------------------------------------------------------------------------
      */
+    const STORAGE_KEY_SIDEBAR_STATE = "lte.sidebar.state";
     const CLASS_NAME_SIDEBAR = 'sidebar';
+    const CLASS_NAME_COLLAPSED$1 = 'collapsed';
+    const CLASS_NAME_MINI_SIDEBAR = 'mini-sidebar';
     const CLASS_NAME_SIDEBAR_MINI_HOVER = 'sidebar-is-hover';
+    const EVENT_NAME_CLICK = 'click';
+    const EVENT_NAME_TRANSITIONED = 'transitionend';
     const SELECTOR_SIDEBAR = '.sidebar';
     const SELECTOR_SIDEBAR_CONTENT = '.sidebar-content';
     const SELECTOR_FULL_TOGGLE = '[data-lte-toggle="sidebar-full"]';
     const SELECTOR_MINI_TOGGLE = '[data-lte-toggle="sidebar-mini"]';
+    var RememberState;
+    (function (RememberState) {
+        RememberState["Open"] = "Open";
+        RememberState["Collapsed"] = "Collapsed";
+        RememberState["Mini"] = "Mini";
+    })(RememberState || (RememberState = {}));
     /**
      * Class Definition
      * ====================================================
@@ -175,11 +186,13 @@
             const sideBar = document.getElementsByClassName(CLASS_NAME_SIDEBAR)[0];
             const fullBtn = document.querySelector(SELECTOR_FULL_TOGGLE);
             if (sideBar && fullBtn) {
-                fullBtn.addEventListener("click", event => {
+                fullBtn.addEventListener(EVENT_NAME_CLICK, event => {
                     event.preventDefault();
-                    sideBar.classList.toggle("collapsed");
-                    sideBar.addEventListener("transitionend", () => {
+                    sideBar.classList.toggle(CLASS_NAME_COLLAPSED$1);
+                    this.sidebarSaveState();
+                    sideBar.addEventListener(EVENT_NAME_TRANSITIONED, () => {
                         window.dispatchEvent(new Event("resize"));
+                        this.sidebarSaveState();
                     });
                 });
             }
@@ -187,13 +200,14 @@
         configureMiniButtonEvents() {
             const sideBar = document.getElementsByClassName(CLASS_NAME_SIDEBAR)[0];
             const miniBtn = document.querySelector(SELECTOR_MINI_TOGGLE);
-            //const sideBarMini = document.getElementsByClassName(CLASS_NAME_SIDEBAR_MINI)[0];
             if (sideBar && miniBtn) {
-                miniBtn === null || miniBtn === void 0 ? void 0 : miniBtn.addEventListener("click", event => {
+                miniBtn === null || miniBtn === void 0 ? void 0 : miniBtn.addEventListener(EVENT_NAME_CLICK, event => {
                     event.preventDefault();
-                    sideBar.classList.toggle("mini-collapsed");
-                    sideBar.addEventListener("transitionend", () => {
+                    sideBar.classList.toggle(CLASS_NAME_MINI_SIDEBAR);
+                    this.sidebarSaveState();
+                    sideBar.addEventListener(EVENT_NAME_TRANSITIONED, () => {
                         window.dispatchEvent(new Event("resize"));
+                        this.sidebarSaveState();
                     });
                 });
             }
@@ -210,10 +224,43 @@
                 });
             }
         }
+        sidebarSaveState() {
+            const sideBar = document.querySelector(SELECTOR_SIDEBAR);
+            if (sideBar === null || sideBar === void 0 ? void 0 : sideBar.classList.contains(CLASS_NAME_COLLAPSED$1)) {
+                localStorage.setItem(STORAGE_KEY_SIDEBAR_STATE, RememberState.Collapsed);
+            }
+            else if ((sideBar === null || sideBar === void 0 ? void 0 : sideBar.classList.contains(CLASS_NAME_MINI_SIDEBAR)) && !sideBar.classList.contains(CLASS_NAME_COLLAPSED$1)) {
+                localStorage.setItem(STORAGE_KEY_SIDEBAR_STATE, RememberState.Mini);
+            }
+            else {
+                localStorage.setItem(STORAGE_KEY_SIDEBAR_STATE, RememberState.Open);
+            }
+        }
+        sidebarLoadSavedState() {
+            const storedSidebarState = localStorage.getItem(STORAGE_KEY_SIDEBAR_STATE);
+            const sideBar = document.querySelector(SELECTOR_SIDEBAR);
+            const getSavedState = () => {
+                if (storedSidebarState) {
+                    return storedSidebarState;
+                }
+                return RememberState.Open;
+            };
+            const setSidebarState = function (sidebarState) {
+                switch (sidebarState) {
+                    case RememberState.Collapsed:
+                        sideBar === null || sideBar === void 0 ? void 0 : sideBar.classList.add(CLASS_NAME_COLLAPSED$1);
+                        break;
+                    case RememberState.Mini:
+                        sideBar === null || sideBar === void 0 ? void 0 : sideBar.classList.add(CLASS_NAME_MINI_SIDEBAR);
+                }
+            };
+            setSidebarState(getSavedState());
+        }
         init() {
             this.configreFullButtonEvents();
             this.configureMiniButtonEvents();
             this.sidebarHover();
+            this.sidebarLoadSavedState();
         }
     }
     /**

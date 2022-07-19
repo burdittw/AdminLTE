@@ -6,10 +6,6 @@
       direction: ltr;
     }
 
-    // In mobile layout the .collapsed class is opposite.
-    // .collapsed = open and not .collapsed = closed. This how we keep
-    // the state when resizing between layout-mobile and non mobile-layouts
-    // .layout-fixed:not(.sidebar-horizontal) {
     .sidebar {
       position: fixed;
       top: 0;
@@ -29,26 +25,15 @@
 
     &[data-sidebar-position="left"] {
       .sidebar {
-        margin-left: calc($lte-sidebar-width * -1);
-
+        
         &~.main-header,
         &~.content-wrapper,
         &~.main-footer {
-          margin-left: 0;
+          margin-left: $lte-sidebar-width;
           @include transition($lte-sidebar-transition);
         }
 
         &.collapsed {
-          margin-left: 0;
-
-          &~.main-header,
-          &~.content-wrapper,
-          &~.main-footer {
-            margin-left: $lte-sidebar-width;
-          }
-        }
-
-        &.mini-collapsed {
           margin-left: calc($lte-sidebar-width * -1);
 
           &~.main-header,
@@ -58,8 +43,18 @@
           }
         }
 
-        &.collapsed.mini-collapsed {
+        &.mini-sidebar {
           margin-left: 0;
+
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-left: calc($lte-sidebar-mini-width);
+          }
+        }
+
+        &.collapsed.mini-sidebar {
+          margin-left: calc($lte-sidebar-width * -1);
 
           .nav-sidebar .nav-link p,
           .brand-link {
@@ -69,7 +64,7 @@
           &~.main-header,
           &~.content-wrapper,
           &~.main-footer {
-            margin-left: calc($lte-sidebar-mini-width);
+            margin-left: 0;
           }
         }
       }
@@ -77,27 +72,17 @@
 
     &[data-sidebar-position="right"] {
       .sidebar {
-        margin-right: calc($lte-sidebar-width * -1);
-
+        
         &~.main-header,
         &~.content-wrapper,
         &~.main-footer {
-          margin-right: 0;
+          margin-right: $lte-sidebar-width;
           @include transition($lte-sidebar-transition);
         }
 
         &.collapsed {
-          margin-right: 0;
-
-          &~.main-header,
-          &~.content-wrapper,
-          &~.main-footer {
-            margin-right: $lte-sidebar-width;
-          }
-        }
-
-        &.mini-collapsed {
           margin-right: calc($lte-sidebar-width * -1);
+
           &~.main-header,
           &~.content-wrapper,
           &~.main-footer {
@@ -105,8 +90,17 @@
           }
         }
 
-        &.collapsed.mini-collapsed {
+        &.mini-sidebar {
           margin-right: 0;
+          &~.main-header,
+          &~.content-wrapper,
+          &~.main-footer {
+            margin-right: calc($lte-sidebar-mini-width);
+          }
+        }
+
+        &.collapsed.mini-sidebar {
+          margin-right: calc($lte-sidebar-mini-width * -1);
           
           .nav-sidebar .nav-link p,
           .brand-link {
@@ -116,14 +110,14 @@
           &~.main-header,
           &~.content-wrapper,
           &~.main-footer {
-            margin-right: calc($lte-sidebar-mini-width);
+            margin-right: 0;
           }
         }
       }
     }
 
     // Use this area for css that can be used in both left or right side sidebars
-    .sidebar.mini-collapsed {
+    .sidebar.mini-sidebar {
       min-width: $lte-sidebar-mini-width;
       max-width: $lte-sidebar-mini-width;
 

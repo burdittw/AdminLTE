@@ -42,7 +42,7 @@
         }
       }
 
-      .sidebar.mini-collapsed {
+      .sidebar.mini-sidebar {
         
         .nav-sidebar .nav-link p,
         .brand-link {
@@ -85,7 +85,7 @@
         }
       }
 
-      .sidebar.mini-collapsed {
+      .sidebar.mini-sidebar {
 
         .nav-sidebar .nav-link p,
         .brand-link {
@@ -109,7 +109,7 @@
     }
 
     // Use this area for css that can be used in both left or right side sidebars
-    .sidebar.mini-collapsed {
+    .sidebar.mini-sidebar {
       min-width: $lte-sidebar-mini-width;
       max-width: $lte-sidebar-mini-width;
 
