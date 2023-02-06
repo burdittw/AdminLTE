@@ -1,0 +1,22 @@
+[data-theme="dark"] {
+
+    .login-logo,
+    .register-logo {
+        a {
+            color: var(--bs-body-color-dark)
+        }
+    }
+
+    .login-page,
+    .register-page {
+        color: $lte-main-color-dark;
+        background-color: $lte-main-bg-dark;
+    }
+
+    .login-card-body,
+    .register-card-body {
+        color: $lte-main-color-dark;
+        background-color: var(--bs-card-bg-dark);
+    }
+
+}

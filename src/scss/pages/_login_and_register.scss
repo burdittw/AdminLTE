@@ -21,7 +21,11 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: $gray-200;
+  //background-color: $gray-200;
+  //color: $lte-main-color;
+  //background-color: $lte-main-bg;
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
 }
 
 .login-box,
