@@ -179,10 +179,11 @@ const distPath = (path != undefined) ? path : '../../../dist'
           <span class="theme-icon-active">
             <i class="my-1"></i>
           </span>
+          <span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
         </button>
         <ul
           class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="bd-theme"
+          aria-labelledby="bd-theme-text"
           style="--bs-dropdown-min-width: 8rem;"
         >
           <li>
@@ -190,6 +191,7 @@ const distPath = (path != undefined) ? path : '../../../dist'
               type="button"
               class="dropdown-item d-flex align-items-center active"
               data-bs-theme-value="light"
+              aria-pressed="false"
             >
               <i class="fa-regular fa-sun me-2"></i>
               Light
@@ -201,6 +203,7 @@ const distPath = (path != undefined) ? path : '../../../dist'
               type="button"
               class="dropdown-item d-flex align-items-center"
               data-bs-theme-value="dark"
+              aria-pressed="false"
             >
               <i class="fa-solid fa-moon me-2"></i>
               Dark
@@ -212,6 +215,7 @@ const distPath = (path != undefined) ? path : '../../../dist'
               type="button"
               class="dropdown-item d-flex align-items-center"
               data-bs-theme-value="auto"
+              aria-pressed="true"
             >
               <i class="fa-solid fa-circle-half-stroke me-2"
               ></i>
