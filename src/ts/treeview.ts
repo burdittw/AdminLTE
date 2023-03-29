@@ -26,6 +26,8 @@ const EVENT_COLLAPSED = `collapsed${EVENT_KEY}`
 // const EVENT_LOAD_DATA_API = `load${EVENT_KEY}`
 
 const CLASS_NAME_MENU_OPEN = 'menu-open'
+
+const SELECTOR_APP_SIDEBAR = '.app-sidebar'
 const SELECTOR_NAV_ITEM = '.nav-item'
 const SELECTOR_TREEVIEW_MENU = '.nav-treeview'
 const SELECTOR_DATA_TOGGLE = '[data-lte-toggle="treeview"]'
@@ -48,6 +50,12 @@ type Config = {
 
 class Treeview {
   static saveMenuItemState(): void {
+    const sidebar = document.querySelector(SELECTOR_APP_SIDEBAR)
+
+    if (!sidebar) {
+      return
+    }
+
     const menuItems = Array.from(document.querySelectorAll(SELECTOR_MENU_NAV_ITEM))
     const menuItemState = new Map<number, string>()
 
@@ -67,6 +75,12 @@ class Treeview {
   }
 
   static loadMenuItemState(): void {
+    const sidebar = document.querySelector(SELECTOR_APP_SIDEBAR)
+
+    if (!sidebar) {
+      return
+    }
+
     const openMenuItems = Array.from(document.querySelectorAll(SELECTOR_MENU_NAV_ITEM))
     let menuItemState = new Map<number, string>()
 
