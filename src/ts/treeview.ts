@@ -48,8 +48,8 @@ type Config = {
 
 class Treeview {
   static saveMenuItemState(): void {
-    const menuItems = document.querySelectorAll(SELECTOR_MENU_NAV_ITEM)
-    const menuItemState = new Map()
+    const menuItems = Array.from(document.querySelectorAll(SELECTOR_MENU_NAV_ITEM))
+    const menuItemState = new Map<number, string>()
 
     for (const [idx, item] of menuItems.entries()) {
       const menuItem = item as HTMLElement
@@ -67,7 +67,7 @@ class Treeview {
   }
 
   static loadMenuItemState(): void {
-    const openMenuItems = document.querySelectorAll(SELECTOR_MENU_NAV_ITEM)
+    const openMenuItems = Array.from(document.querySelectorAll(SELECTOR_MENU_NAV_ITEM))
     let menuItemState = new Map<number, string>()
 
     const storedMenuItemState = localStorage.getItem(STORAGE_KEY_SIDEBAR_MENUITEM_STATE)

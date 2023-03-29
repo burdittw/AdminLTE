@@ -43,7 +43,7 @@ class FullScreen {
  */
 
 domReady(() => {
-  const button = document.getElementsByClassName(CLASS_NAME_FULLSCREEN)
+  const button = Array.from(document.getElementsByClassName(CLASS_NAME_FULLSCREEN))
 
   for (const btn of button) {
     btn.addEventListener('click', async event => {
@@ -63,12 +63,12 @@ domReady(() => {
     const screenWidth = window.screen.width
     const screenHeight = window.screen.height
     if (((windowWidth / screenWidth) >= 0.95) && ((windowHeight / screenHeight) >= 0.95)) {
-      const icon = document.getElementsByClassName(CLASS_NAME_FULLSCREEN_ICON)
+      const icon = Array.from(document.getElementsByClassName(CLASS_NAME_FULLSCREEN_ICON))
       for (const i of icon) {
         i.classList.toggle(CLASS_NAME_LTE_SHOW)
       }
     } else {
-      const icon = document.getElementsByClassName(CLASS_NAME_FULLSCREEN_ICON)
+      const icon = Array.from(document.getElementsByClassName(CLASS_NAME_FULLSCREEN_ICON))
       for (const i of icon) {
         i.classList.toggle(CLASS_NAME_LTE_SHOW)
       }
