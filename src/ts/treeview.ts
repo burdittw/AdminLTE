@@ -29,6 +29,9 @@ const CLASS_NAME_MENU_OPEN = 'menu-open'
 const SELECTOR_NAV_ITEM = '.nav-item'
 const SELECTOR_TREEVIEW_MENU = '.nav-treeview'
 const SELECTOR_DATA_TOGGLE = '[data-lte-toggle="treeview"]'
+const SELECTOR_MENU_NAV_ITEM = '[data-lte-toggle="treeview"] li.nav-item'
+
+const STORAGE_KEY_SIDEBAR_MENUITEM_STATE = 'lte.sidebar.menuitem.state'
 
 const Default = {
   animationSpeed: 300
@@ -44,6 +47,56 @@ type Config = {
  */
 
 class Treeview {
+  static saveMenuItemState(): void {
+    const menuItems = document.querySelectorAll(SELECTOR_MENU_NAV_ITEM)
+    const menuItemState = new Map()
+
+    for (const [idx, item] of menuItems.entries()) {
+      const menuItem = item as HTMLElement
+      let menuState = 'menu-closed'
+
+      if (menuItem.classList.contains(CLASS_NAME_MENU_OPEN)) {
+        menuState = CLASS_NAME_MENU_OPEN
+      }
+
+      menuItemState.set(idx, menuState)
+    }
+
+    const jsonMenuItemState = JSON.stringify(Array.from(menuItemState))
+    localStorage.setItem(STORAGE_KEY_SIDEBAR_MENUITEM_STATE, jsonMenuItemState)
+  }
+
+  static loadMenuItemState(): void {
+    const openMenuItems = document.querySelectorAll(SELECTOR_MENU_NAV_ITEM)
+    let menuItemState = new Map<number, string>()
+
+    const storedMenuItemState = localStorage.getItem(STORAGE_KEY_SIDEBAR_MENUITEM_STATE)
+    if (storedMenuItemState) {
+      menuItemState = new Map(JSON.parse(storedMenuItemState) as Map<number, string>)
+    } else {
+      Treeview.saveMenuItemState()
+    }
+
+    if (openMenuItems.length === menuItemState.size) {
+      for (const [idx, item] of openMenuItems.entries()) {
+        const menuItem = item as HTMLElement
+        const menuState = menuItemState.get(idx)
+
+        if (menuState === CLASS_NAME_MENU_OPEN) {
+          menuItem.classList.add(CLASS_NAME_MENU_OPEN)
+
+          const navTreeview = menuItem.querySelector(SELECTOR_TREEVIEW_MENU)!
+          if (navTreeview instanceof HTMLElement) {
+            navTreeview.style.display = 'block'
+            navTreeview.style.boxSizing = 'border-box'
+          }
+        }
+      }
+    } else {
+      localStorage.removeItem(STORAGE_KEY_SIDEBAR_MENUITEM_STATE)
+    }
+  }
+
   _element: HTMLElement
   _config: Config
   _childNavItem: HTMLElement | undefined
@@ -81,8 +134,10 @@ class Treeview {
   toggle(): void {
     if (this._element.classList.contains(CLASS_NAME_MENU_OPEN)) {
       this.close()
+      Treeview.saveMenuItemState()
     } else {
       this.open()
+      Treeview.saveMenuItemState()
     }
   }
 }
@@ -94,6 +149,9 @@ class Treeview {
  */
 
 domReady(() => {
+  // Load the saved state and apply to the treeview when the document is ready
+  Treeview.loadMenuItemState()
+
   const button = document.querySelectorAll(SELECTOR_DATA_TOGGLE)
 
   for (const btn of button) {
