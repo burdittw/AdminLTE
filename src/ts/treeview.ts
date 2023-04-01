@@ -26,12 +26,13 @@ const EVENT_COLLAPSED = `collapsed${EVENT_KEY}`
 // const EVENT_LOAD_DATA_API = `load${EVENT_KEY}`
 
 const CLASS_NAME_MENU_OPEN = 'menu-open'
+const CLASS_NAME_ACTIVE_FOCUS = 'active-focus'
 
 const SELECTOR_APP_SIDEBAR = '.app-sidebar'
 const SELECTOR_NAV_ITEM = '.nav-item'
 const SELECTOR_TREEVIEW_MENU = '.nav-treeview'
 const SELECTOR_DATA_TOGGLE = '[data-lte-toggle="treeview"]'
-const SELECTOR_MENU_NAV_ITEM = '[data-lte-toggle="treeview"] li.nav-item'
+const SELECTOR_MENU_NAV_ITEM = '[data-lte-toggle="treeview"] li:has(ul.nav.nav-treeview)'
 
 const STORAGE_KEY_SIDEBAR_MENUITEM_STATE = 'lte.sidebar.menuitem.state'
 
@@ -119,6 +120,14 @@ class Treeview {
     this._element = element
     this._config = { ...Default, ...config }
     this._childNavItem = this._element.querySelector(SELECTOR_TREEVIEW_MENU) as HTMLElement | undefined
+  }
+
+  removeActiveFocus(): void {
+    const navItems = document.querySelectorAll(SELECTOR_MENU_NAV_ITEM)
+
+    navItems.forEach(navItem => {
+      navItem.classList.remove(CLASS_NAME_ACTIVE_FOCUS)
+    })
   }
 
   open(): void {
